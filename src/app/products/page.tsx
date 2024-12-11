@@ -58,9 +58,9 @@ export default function Products(){
     height={1000}
     className="w-[169px] flex justify-center items-center mx-auto pt-10"/>
     <div className="absolute flex flex-col items-center top-32  ml-3 opacity-0 group-hover:opacity-100  transition-opacity gap-2 duration-300 ">
-        <Image width={1000} height={1000} src="/productcart.png" alt="" />
-        <Image width={1000} height={1000} src="/heart.png" alt="" />
-        <Image width={1000} height={1000} src="/zoom.png" alt="" />
+        <Image width={1000} height={1000} src="/productcart.png" alt=""  className="w-4"/>
+        <Image width={1000} height={1000} src="/heart.png" alt=""  className="w-4"/>
+        <Image width={1000} height={1000} src="/zoom.png" alt="" className="w-4" />
     </div>
 </div>
 <div className="flex  items-center flex-col  mt-1 space-y-2 mx-2 ">
