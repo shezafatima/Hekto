@@ -1,0 +1,40 @@
+{
+    "shop":[
+        {
+            "id":1,
+            "name":"Accumsan tincidunt",
+            "img":"/shop1.png"
+        },
+
+        {
+            "id":2,
+            "name":"In nulla",
+            "img":"/shop2.png"
+        },
+        {
+            "id":3,
+            "name":"Vel sem",
+            "img":"/shop3.png"
+        },
+        {
+            "id":4,
+            "name":"Porttitor cum",
+            "img":"/shop4.png"
+        },
+        {
+            "id":5,
+            "name":"Nunc in",
+            "img":"/shop5.png"
+        },
+        {
+            "id":6,
+            "name":"Vitae facilisis",
+            "img":"/shop6.png"
+        },
+        {
+            "id":7,
+            "name":"Curabitur lectus",
+            "img":"/shop7.png"
+        }
+    ]
+}
