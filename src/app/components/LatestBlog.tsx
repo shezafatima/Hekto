@@ -16,10 +16,10 @@ export default function LatestBlog(){
             className="rounded-lg"/>
             <div className="flex gap-7 mt-[19px] mx-4 flex-wrap">
 <div className="flex justify-center items-center gap-[2px] ">
-    <Image width={1000} height={1000} src="/author.png" alt="" /><p className="text-[16px] text-[#1A0B5B]">SaberAli</p>
+    <Image width={1000} height={1000} src="/author.png" alt="" className="w-4" /><p className="text-[16px] text-[#1A0B5B]">SaberAli</p>
 </div>
 <div className="flex justify-center items-center gap-[2px]">
-    <Image width={1000} height={1000} src="/calendar.png" alt="" /><p className="text-[16px] text-[#1A0B5B]">21 August,2020</p>
+    <Image width={1000} height={1000} src="/calendar.png" alt=""  className="w-4"/><p className="text-[16px] text-[#1A0B5B]">21 August,2020</p>
 </div>
             </div>
             <div className="mx-4 flex flex-col  mt-5 flex-wrap">
@@ -39,10 +39,10 @@ over tightly circa horse taped mightly</p>
             className="rounded-lg"/>
             <div className="flex gap-7 mt-[19px] mx-4 flex-wrap">
 <div className="flex justify-center items-center gap-[2px] ">
-    <Image width={1000} height={1000} src="/author.png" alt="" /><p className="text-[16px] text-[#1A0B5B]">Surfauxion</p>
+    <Image width={1000} height={1000} src="/author.png" alt=""  className="w-4" /><p className="text-[16px] text-[#1A0B5B]">Surfauxion</p>
 </div>
 <div className="flex justify-center items-center gap-[2px]">
-    <Image width={1000} height={1000} src="/calendar.png" alt="" /><p className="text-[16px] text-[#1A0B5B]">21 August,2020</p>
+    <Image width={1000} height={1000} src="/calendar.png" alt="" className="w-4" /><p className="text-[16px] text-[#1A0B5B]">21 August,2020</p>
 </div>
             </div>
             <div className="mx-4 flex flex-col  mt-5 flex-wrap">
@@ -62,10 +62,10 @@ over tightly circa horse taped mightly</p>
             className="rounded-lg"/>
             <div className="flex gap-7 mt-[19px] mx-4 flex-wrap">
 <div className="flex justify-center items-center gap-[2px] ">
-    <Image width={1000} height={1000} src="/author.png" alt="" /><p className="text-[16px] text-[#1A0B5B]">SaberAli</p>
+    <Image width={1000} height={1000} src="/author.png" alt=""  className="w-4"/><p className="text-[16px] text-[#1A0B5B]">SaberAli</p>
 </div>
 <div className="flex justify-center items-center gap-[2px]">
-    <Image width={1000} height={1000} src="/calendar.png" alt="" /><p className="text-[16px] text-[#1A0B5B]">21 August,2020</p>
+    <Image width={1000} height={1000} src="/calendar.png" alt="" className="w-4" /><p className="text-[16px] text-[#1A0B5B]">21 August,2020</p>
 </div>
             </div>
             <div className="mx-4 flex flex-col  mt-5 flex-wrap">

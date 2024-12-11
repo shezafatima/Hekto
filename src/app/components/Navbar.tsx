@@ -17,25 +17,25 @@ export default function Navbar(){
 <div className="flex items-center justify-end  gap-4 pr-20">
     <div className="gap-2 flex items-center">
         <h1 className="text-white text-[16px] ">English</h1>
-        <Image width={1000} height={1000} src="/arrow.png" alt="arrow" className="text-white"/>
+        <Image width={1000} height={1000} src="/arrow.png" alt="arrow" className="text-white w-2"/>
     </div>
     <div className="gap-2 flex items-center">
         <h1 className="text-white text-[16px] ">USD</h1>
-        <Image width={1000} height={1000} src="/arrow.png" alt="arrow" className="text-white"/>
+        <Image width={1000} height={1000} src="/arrow.png" alt="arrow" className="text-white w-2"/>
     </div>
     <div className="gap-2 flex items-center justify-center">
         <Link href="/login">
         
         <h1 className="text-white text-[16px] ">Login</h1>
         </Link>
-        <Image width={1000} height={1000} src="/user.png" alt="user" className="text-white"/>
+        <Image width={1000} height={1000} src="/user.png" alt="user" className="text-white w-4"/>
     </div>
     <div className="gap-2 flex items-center">
         <h1 className="text-white text-[16px] ">Wishlist</h1>
-        <Image width={1000} height={1000} src="/wishlist.png" alt="wishlist" className="text-white"/>
+        <Image width={1000} height={1000} src="/wishlist.png" alt="wishlist" className="text-white w-4"/>
     </div>
     <Link href="/shopingcart">
-    <Image width={1000} height={1000} src="/cart.png" alt="cart" className="mx-[26px]"/>
+    <Image width={1000} height={1000} src="/cart.png" alt="cart" className="mx-[26px] w-4"/>
     </Link>
 </div>
 </div>

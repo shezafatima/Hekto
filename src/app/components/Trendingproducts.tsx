@@ -82,7 +82,7 @@ export default function TrendingProducts() {
           </div>
         </div>
       </div>
-      <div className="mt-[39px] sm:flex items-center justify-center flex-wrap gap-[29px]">
+      <div className="mt-[39px] sm:flex items-center justify-center  gap-[29px]">
         <div className="sm:w-[420px] sm:h-[270px] bg-[#31208A0D]">
           <div className="mt-9 mx-6">
             <h1 className="text-[26px] text-[#151875]">
@@ -128,7 +128,7 @@ export default function TrendingProducts() {
         <div className="flex flex-col gap-[20px] sm:mt-0 mt-8">
           <div className="flex gap-[9px]">
             <Image
-              src="/img1.png"
+              src="/schair1.png"
               alt="img"
               width={1000}
               height={1000}
@@ -138,12 +138,12 @@ export default function TrendingProducts() {
               <h1 className="text-[16px] text-[#151875]">
                 Executive Seat chair
               </h1>
-              <p className="text-[12px] text-[#151875]">$32.00</p>
+              <p className="text-[12px] text-[#151875] line-through">$32.00</p>
             </div>
           </div>
           <div className="flex gap-[9px]">
             <Image
-              src="/img2.png"
+              src="/schair2.png"
               alt="img"
               width={1000}
               height={1000}
@@ -153,7 +153,7 @@ export default function TrendingProducts() {
               <h1 className="text-[16px] text-[#151875]">
                 Executive Seat chair
               </h1>
-              <p className="text-[12px] text-[#151875]">$32.00</p>
+              <p className="text-[12px] text-[#151875] line-through">$32.00</p>
             </div>
           </div>
           <div className="flex gap-[9px]">
@@ -168,7 +168,7 @@ export default function TrendingProducts() {
               <h1 className="text-[16px] text-[#151875]">
                 Executive Seat chair
               </h1>
-              <p className="text-[12px] text-[#151875]">$32.00</p>
+              <p className="text-[12px] text-[#151875] line-through">$32.00</p>
             </div>
           </div>
         </div>

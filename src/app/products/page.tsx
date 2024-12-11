@@ -36,8 +36,8 @@ export default function Products(){
     </div>
     <div className="flex gap-2 items-center">
         <h1 className="text-[16px] text-[#3F509E]">View:</h1>
-        <Image width={1000} height={1000} src="/view1.png" alt="" />
-        <Image width={1000} height={1000} src="/view2.png" alt="" />
+        <Image width={1000} height={1000} src="/view1.png" alt="" className="w-4"/>
+        <Image width={1000} height={1000} src="/view2.png" alt="" className="w-4"/>
         <div className="w-[106px] h-[25px] border border-[#E7E6EF] "> </div>
     </div>
     

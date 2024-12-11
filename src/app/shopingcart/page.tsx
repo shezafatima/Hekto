@@ -19,7 +19,7 @@ export default function ShoppingCart() {
           </Link>
         </div>
       </div>
-      <div className="flex md:mx-[150px] mx-[20px] mt-20 gap-6 flex-wrap" >
+      <div className="flex md:mx-[150px] mx-[20px] mt-20 gap-6 " >
         <div className="flex md:w-[718px] w-[218px]">
           <div>
             <div className="grid grid-cols-4 space-x-16">

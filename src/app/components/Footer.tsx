@@ -61,9 +61,9 @@ export default function Footer(){
         <div className="py-4  px-[130px] justify-between flex flex-wrap">
 <h1 className="text-[16px] text-[#9DA0AE]">©Webecy - All Rights Reserved</h1>
 <div className="flex gap-[11px] items-center">
-    <Image width={1000} height={1000} src="/facebook.png" alt="image" />
-    <Image width={1000} height={1000} src="/insta.png" alt="image" />
-    <Image width={1000} height={1000} src="/twitter.png" alt="image" />
+    <Image width={1000} height={1000} src="/facebook.png" alt="image" className="w-4" />
+    <Image width={1000} height={1000} src="/insta.png" alt="image" className="w-4"/>
+    <Image width={1000} height={1000} src="/twitter.png" alt="image"className="w-4" />
 </div>
         </div>
         </div>
