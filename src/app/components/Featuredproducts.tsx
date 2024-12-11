@@ -14,9 +14,9 @@ export default function FeaturedProducts(){
 <div className="bg-gray-300 rounded-t-[4px] pb-2">
     
     <div className="absolute flex items-center ml-3 opacity-0 group-hover:opacity-100  transition-opacity gap-2 duration-300 pt-3">
-        <Image width={1000} height={1000} src="/productcart.png" alt="" />
-        <Image width={1000} height={1000} src="/heart.png" alt="" />
-        <Image width={1000} height={1000} src="/zoom.png" alt="" />
+        <Image width={1000} height={1000} src="/productcart.png" alt="" className="w-4" />
+        <Image width={1000} height={1000} src="/heart.png" alt="" className="w-4" />
+        <Image width={1000} height={1000} src="/zoom.png" alt="" className="w-4" />
     </div>
     <Image
     src={featuredproduct.img}
