@@ -34,8 +34,8 @@ export default function Navbar() {
             <h1 className="text-white text-16px">(12345)67890</h1>
           </div>
         </div>
-        <div className="flex items-center justify-end  gap-4 pr-20">
-          <div className="gap-2 flex items-center">
+        <div className="flex items-center justify-end flex-wrap md:px-0 px-2 md:mt-0 mt-2 gap-4 pr-20">
+          <div className="gap-2 flex items-center ">
             <h1 className="text-white text-[16px] ">English</h1>
             <Image
               width={1000}
