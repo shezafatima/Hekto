@@ -28,7 +28,7 @@ export default function LatestProducts(){
    <div className="mt-[48px] grid lg:grid-cols-3   gap-[29px] mb-[120px] ">
     {latestData.latestproducts.map((latestproduct)=>(
 
-<div key={latestproduct.id} className="relative group  w-[360px] h-[306px] shadow-xl rounded-[4px] ">
+<div key={latestproduct.id} className="relative group  md:w-[360px] md:h-[306px] w-[270px] shadow-xl rounded-[4px] ">
     <div className="">
 
 <div className="bg-gray-300 rounded-t-[4px] hover:bg-white pb-2">
