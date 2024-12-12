@@ -11,7 +11,7 @@ import Image from "next/image";
 export default function Navbar() {
   return (
     <div className="">
-      <div className="bg-[#7E33E0] md:grid grid-cols-2 flex items-center flex-wrap justify-center  py-2 px-auto">
+      <div className="bg-[#7E33E0] md:grid grid-cols-2 flex items-center flex-wrap justify-center px-2   py-2 md:px-auto">
         <div className="flex gap-[48px] justify-center ">
           <div className="flex justify-center items-center flex-wrap gap-[10px]">
             <Image
@@ -90,7 +90,7 @@ export default function Navbar() {
       </div>
       <div className="md:hidden  block">
         <Sheet>
-          <div className="flex justify-end px-8 items-center mt-6 text-2xl">
+          <div className="flex justify-end px-8 items-center mt-6 text-2xl flex-wrap">
             <SheetTrigger>
               <IoMdMenu />
             </SheetTrigger>
