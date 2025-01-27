@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 export default function LatestBlog(){
     return(
-        <div className="lg:mx-[130px] mx-[50px] mt-[96px]">
+        <div className=" mx-[50px] mt-[96px]">
 <h1 className="text-[42px] text-[#1A0B5B] flex justify-center items-center text-center font-semibold">
        Latest Blog
       </h1>
@@ -13,13 +13,14 @@ export default function LatestBlog(){
             alt="img"
             width={1000}
             height={1000}
+             loading="lazy"
             className="rounded-lg"/>
             <div className="flex gap-7 mt-[19px] mx-4 flex-wrap">
 <div className="flex justify-center items-center gap-[2px] ">
-    <Image width={1000} height={1000} src="/author.png" alt="" className="w-4" /><p className="text-[16px] text-[#1A0B5B]">SaberAli</p>
+    <Image width={1000} height={1000} loading="lazy" src="/author.png" alt="" className="w-4" /><p className="text-[16px] text-[#1A0B5B]">SaberAli</p>
 </div>
 <div className="flex justify-center items-center gap-[2px]">
-    <Image width={1000} height={1000} src="/calendar.png" alt=""  className="w-4"/><p className="text-[16px] text-[#1A0B5B]">21 August,2020</p>
+    <Image width={1000} height={1000} loading="lazy" src="/calendar.png" alt=""  className="w-4"/><p className="text-[16px] text-[#1A0B5B]">21 August,2020</p>
 </div>
             </div>
             <div className="mx-4 flex flex-col  mt-5 flex-wrap">
@@ -36,13 +37,14 @@ over tightly circa horse taped mightly</p>
             alt="img"
             width={1000}
             height={1000}
+            loading="lazy" 
             className="rounded-lg"/>
             <div className="flex gap-7 mt-[19px] mx-4 flex-wrap">
 <div className="flex justify-center items-center gap-[2px] ">
-    <Image width={1000} height={1000} src="/author.png" alt=""  className="w-4" /><p className="text-[16px] text-[#1A0B5B]">Surfauxion</p>
+    <Image width={1000} height={1000} loading="lazy" src="/author.png" alt=""  className="w-4" /><p className="text-[16px] text-[#1A0B5B]">Surfauxion</p>
 </div>
 <div className="flex justify-center items-center gap-[2px]">
-    <Image width={1000} height={1000} src="/calendar.png" alt="" className="w-4" /><p className="text-[16px] text-[#1A0B5B]">21 August,2020</p>
+    <Image width={1000} height={1000} loading="lazy" src="/calendar.png" alt="" className="w-4" /><p className="text-[16px] text-[#1A0B5B]">21 August,2020</p>
 </div>
             </div>
             <div className="mx-4 flex flex-col  mt-5 flex-wrap">
@@ -59,13 +61,14 @@ over tightly circa horse taped mightly</p>
             alt="img"
             width={1000}
             height={1000}
+            loading="lazy" 
             className="rounded-lg"/>
             <div className="flex gap-7 mt-[19px] mx-4 flex-wrap">
 <div className="flex justify-center items-center gap-[2px] ">
-    <Image width={1000} height={1000} src="/author.png" alt=""  className="w-4"/><p className="text-[16px] text-[#1A0B5B]">SaberAli</p>
+    <Image width={1000} height={1000} loading="lazy" src="/author.png" alt=""  className="w-4"/><p className="text-[16px] text-[#1A0B5B]">SaberAli</p>
 </div>
 <div className="flex justify-center items-center gap-[2px]">
-    <Image width={1000} height={1000} src="/calendar.png" alt="" className="w-4" /><p className="text-[16px] text-[#1A0B5B]">21 August,2020</p>
+    <Image width={1000} height={1000} loading="lazy" src="/calendar.png" alt="" className="w-4" /><p className="text-[16px] text-[#1A0B5B]">21 August,2020</p>
 </div>
             </div>
             <div className="mx-4 flex flex-col  mt-5 flex-wrap">

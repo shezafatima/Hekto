@@ -1,86 +1,49 @@
 import Image from "next/image";
 import Link from "next/link";
-export default function TrendingProducts() {
+import { Product } from "../../../types/products";
+import { client } from "@/sanity/lib/client";
+import { trendingProducts } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
+import TopCategories from "./TopCategories";
+export default async function TrendingProducts() {
+  const TrendingProducts : Product[]=await client.fetch(trendingProducts)
   return (
     <div>
 
-    <div className="mt-[58px] lg:mx-[130px] mx-[50px]">
+    <div className="mt-[58px]  mx-[50px]">
       <h1 className="text-[42px] text-[#1A0B5B] flex justify-center items-center text-center font-semibold">
         Trending Products
       </h1>
       <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-[29px] mt-[39px]">
-        <div className="w-[270px] h-[350px] rounded-[4px] shadow-xl">
+        {TrendingProducts.map((trendingproduct)=>(
+        <div key={trendingproduct._id} className="w-[270px] h-[350px] rounded-[4px] shadow-xl">
+          <Link href={`/products/${trendingproduct._id}`}>
           <div className="bg-gray-200 m-4 mt-4 w-[247px] h-[244px]">
-            <Image
-              src="/trending1.png"
+            {trendingproduct.image &&(
+
+              <Image
+              src={urlFor(trendingproduct.image).url()}
               alt="img"
               width={1000}
               height={1000}
               className="w-[170px] flex items-center justify-center mx-auto pt-10"
-            />
+              />
+            )}
           </div>
           <div className="mt-3 flex justify-center items-center flex-col">
-            <h1 className="text-[16px] text-[#151875]">Cantilever chair</h1>
+            <h1 className="text-[16px] text-[#151875]">{trendingproduct.name}</h1>
             <div className="flex items-center mt-2 gap-2">
-              <p className="text-[14px] text-[#151875]">$26.00 </p>
+              <p className="text-[14px] text-[#151875]">${trendingproduct.price}</p>
               <p className="text-[12px] text-[#1518754D]">$42.00 </p>
             </div>
           </div>
+          </Link>
         </div>
-        <div className="w-[270px] h-[350px] rounded-[4px] shadow-xl">
-          <div className="bg-gray-200 m-4 mt-4 w-[247px] h-[244px]">
-            <Image
-              src="/trending2.png"
-              alt="img"
-              width={1000}
-              height={1000}
-              className="w-[170px] flex items-center justify-center mx-auto pt-10"
-            />
-          </div>
-          <div className="mt-3 flex justify-center items-center flex-col">
-            <h1 className="text-[16px] text-[#151875]">Cantilever chair</h1>
-            <div className="flex items-center mt-2 gap-2">
-              <p className="text-[14px] text-[#151875]">$26.00 </p>
-              <p className="text-[12px] text-[#1518754D]">$42.00 </p>
-            </div>
-          </div>
-        </div>
-        <div className="w-[270px] h-[350px] rounded-[4px] shadow-xl">
-          <div className="bg-gray-200 m-4 mt-4 w-[247px] h-[244px]">
-            <Image
-              src="/trending3.png"
-              alt="img"
-              width={1000}
-              height={1000}
-              className="w-[170px] flex items-center justify-center mx-auto pt-10"
-            />
-          </div>
-          <div className="mt-3 flex justify-center items-center flex-col">
-            <h1 className="text-[16px] text-[#151875]">Cantilever chair</h1>
-            <div className="flex items-center mt-2 gap-2">
-              <p className="text-[14px] text-[#151875]">$26.00 </p>
-              <p className="text-[12px] text-[#1518754D]">$42.00 </p>
-            </div>
-          </div>
-        </div>
-        <div className="w-[270px] h-[350px] rounded-[4px] shadow-xl">
-          <div className="bg-gray-200 m-4 mt-4 w-[247px] h-[244px]">
-            <Image
-              src="/trending4.png"
-              alt="img"
-              width={1000}
-              height={1000}
-              className="w-[170px] flex items-center justify-center mx-auto pt-10"
-            />
-          </div>
-          <div className="mt-3 flex justify-center items-center flex-col">
-            <h1 className="text-[16px] text-[#151875]">Cantilever chair</h1>
-            <div className="flex items-center mt-2 gap-2">
-              <p className="text-[14px] text-[#151875]">$26.00 </p>
-              <p className="text-[12px] text-[#1518754D]">$42.00 </p>
-            </div>
-          </div>
-        </div>
+
+        ))}
+        
+
+       
       </div>
       <div className="mt-[39px] sm:flex items-center justify-center  gap-[29px]">
         <div className="sm:w-[420px] sm:h-[270px] bg-[#31208A0D]">
@@ -225,7 +188,7 @@ export default function TrendingProducts() {
                   </p>
                 </div>
                 <div className="flex gap-[6px] items-center mt-[10px]">
-                  <Image width={1000} height={1000} src="/check.png" alt="" className="w-3 h-3" />
+                  <Image width={1000} height={1000} loading="lazy" src="/check.png" alt="" className="w-3 h-3" />
                   <p className="text-[16px] text-[#B7BACB]">
                   Simple neutral colours.
                   </p>
@@ -233,13 +196,13 @@ export default function TrendingProducts() {
               </div>
               <div className="flex flex-col ">
                 <div className="flex gap-[6px] items-center">
-                  <Image width={1000} height={1000} src="/check.png" alt="" className="w-3 h-3" />
+                  <Image width={1000} height={1000}loading="lazy" src="/check.png" alt="" className="w-3 h-3" />
                   <p className="text-[16px] text-[#B7BACB]">
                   Clear lines and geomatric figures
                   </p>
                 </div>
                 <div className="flex gap-[6px]  items-center mt-[10px]">
-                  <Image width={1000} height={1000} src="/check.png" alt="" className="w-3 h-3" />
+                  <Image width={1000} height={1000} loading="lazy" src="/check.png" alt="" className="w-3 h-3" />
                   <p className="text-[16px] text-[#B7BACB]">
                   Material expose like metals
                   </p>
@@ -256,122 +219,13 @@ export default function TrendingProducts() {
           alt="sofa"
           width={1000}
           height={1000}
+          loading="lazy"
           className="sm:w-[620px] w-[420px] right-8 absolute ml-auto flex justify-end items-center"/>
 
           </div>
         </div>
       </div>
-      <div className="mt-20">
-      <h1 className="text-[42px] text-[#1A0B5B] flex justify-center items-center text-center font-semibold">
-        Top Categories
-      </h1>
-      <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-10  mt-[56px]">
-<div>
-<div className="hover:bg-[#151875] w-[256px] h-[256px] rounded-full">
-
-          <div className="bg-gray-200  w-[256px] h-[256px] bottom-[8px] -right-[8px] rounded-full relative group">
-            <Image
-              src="/chair1.png"
-              alt="img"
-              width={1000}
-              height={1000}
-              className="w-[170px] flex items-center justify-center mx-auto pt-10"
-            />
-            <Link href="/shop">
-            <button className=" flex items-center   text-center py-2 px-3 justify-center  mx-auto bg-[#08D15F] rounded-[2px] text-white text-[12px]  opacity-0 group-hover:opacity-100  transition-opacity duration-300">
-     View Shop
-    </button>
-            </Link>
-          </div>
-</div>
-          <div className="mt-3 flex justify-center items-center flex-col">
-            <h1 className="text-[16px] text-[#151875]">Mini LCW Chair</h1>
-            <div className="flex items-center mt-2 gap-2">
-              <p className="text-[14px] text-[#151875]">$26.00 </p>
-
-            </div>
-          </div>
-</div>
-<div>
-<div className="hover:bg-[#151875] w-[256px] h-[256px] rounded-full">
-
-          <div className="bg-gray-200  w-[256px] h-[256px] bottom-[8px] -right-[8px] rounded-full relative group">
-            <Image
-              src="/chair.png"
-              alt="img"
-              width={1000}
-              height={1000}
-              className="w-[170px] flex items-center justify-center mx-auto pt-10"
-            />
-            <Link href="/shop">
-            <button className=" flex items-center   text-center py-2 px-3 justify-center  mx-auto bg-[#08D15F] rounded-[2px] text-white text-[12px]  opacity-0 group-hover:opacity-100  transition-opacity duration-300">
-     View Shop
-    </button>
-    </Link>
-          </div>
-</div>
-          <div className="mt-3 flex justify-center items-center flex-col">
-            <h1 className="text-[16px] text-[#151875]">Mini LCW Chair</h1>
-            <div className="flex items-center mt-2 gap-2">
-              <p className="text-[14px] text-[#151875]">$26.00 </p>
-
-            </div>
-          </div>
-</div>
-<div>
-<div className="hover:bg-[#151875] w-[256px] h-[256px] rounded-full">
-
-          <div className="bg-gray-200  w-[256px] h-[256px] bottom-[8px] -right-[8px] rounded-full relative group">
-            <Image
-              src="/chair2.png"
-              alt="img"
-              width={1000}
-              height={1000}
-              className="w-[170px] flex items-center justify-center mx-auto pt-10"
-            />
-             <Link href="/shop">
-            <button className=" flex items-center   text-center py-2 px-3 justify-center  mx-auto bg-[#08D15F] rounded-[2px] text-white text-[12px]  opacity-0 group-hover:opacity-100  transition-opacity duration-300">
-     View Shop
-    </button>
-    </Link>
-          </div>
-</div>
-          <div className="mt-3 flex justify-center items-center flex-col">
-            <h1 className="text-[16px] text-[#151875]">Mini LCW Chair</h1>
-            <div className="flex items-center mt-2 gap-2">
-              <p className="text-[14px] text-[#151875]">$26.00 </p>
-
-            </div>
-          </div>
-</div>
-<div>
-<div className="hover:bg-[#151875] w-[256px] h-[256px] rounded-full">
-
-          <div className="bg-gray-200  w-[256px] h-[256px] bottom-[8px] -right-[8px] rounded-full relative group">
-            <Image
-              src="/chair1.png"
-              alt="img"
-              width={1000}
-              height={1000}
-              className="w-[170px] flex items-center justify-center mx-auto pt-10"
-              />
-             <Link href="/shop">
-            <button className=" flex items-center   text-center py-2 px-3 justify-center  mx-auto bg-[#08D15F] rounded-[2px] text-white text-[12px]  opacity-0 group-hover:opacity-100  transition-opacity duration-300">
-     View Shop
-    </button>
-    </Link>
-          </div>
-</div>
-          <div className="mt-3 flex justify-center items-center flex-col">
-            <h1 className="text-[16px] text-[#151875]">Mini LCW Chair</h1>
-            <div className="flex items-center mt-2 gap-2">
-              <p className="text-[14px] text-[#151875]">$26.00 </p>
-
-            </div>
-          </div>
-</div>
-      </div>
-      </div>
+     <TopCategories/>
     </div>
       <div className="mt-[125px] bg-center bg-cover h-[462px] " style={{backgroundImage:"url('/bgimg.png')"}}>
 <div className="flex-col ">
@@ -386,6 +240,7 @@ export default function TrendingProducts() {
         alt="brand"
         width={1000}
         height={1000}
+        loading="lazy"
         className=""/>
       </div>
               </div>

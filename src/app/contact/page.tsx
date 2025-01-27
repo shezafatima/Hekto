@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import Conatainer from "../components/Container";
 export default function Contact() {
   return (
+    <Conatainer>
+
     <div>
-      <div className="bg-[#F6F5FF] h-[186px] md:px-[150px] px-[50px]">
+      <div className="bg-[#F6F5FF] h-[186px]  px-[50px]">
         <h1 className="text-[36px] text-[#101750] flex flex-wrap items-center pt-14 font-semibold ">
           Contact Us
         </h1>
@@ -117,5 +120,6 @@ export default function Contact() {
         </div>
       </div>
     </div>
+    </Conatainer>
   );
 }

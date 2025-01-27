@@ -1,7 +1,11 @@
 import Link from "next/link"
-import Image from "next/image"
+
+import Conatainer from "./Container"
+import MediaIcon from "./MediaIcon"
 export default function Footer(){
     return(
+        <Conatainer>
+
         <div className="  ">
 
         <div className="bg-[#EEEFFB] mt-28 lg:flex sm:grid-cols-2 grid lg:gap-0  py-24 md:px-[130px] px-[50px] justify-between">
@@ -61,11 +65,10 @@ export default function Footer(){
         <div className="py-4  px-[130px] justify-between flex flex-wrap">
 <h1 className="text-[16px] text-[#9DA0AE]">©Webecy - All Rights Reserved</h1>
 <div className="flex gap-[11px] items-center">
-    <Image width={1000} height={1000} src="/facebook.png" alt="image" className="w-4" />
-    <Image width={1000} height={1000} src="/insta.png" alt="image" className="w-4"/>
-    <Image width={1000} height={1000} src="/twitter.png" alt="image"className="w-4" />
+    <MediaIcon/>
 </div>
         </div>
         </div>
+        </Conatainer>
     )
 }

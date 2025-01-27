@@ -3,6 +3,8 @@ import {Josefin_Sans} from "next/font/google"
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
+import ChatIcon from "./components/ChatIcon";
 
 const josefinSans = Josefin_Sans({subsets :['latin'],
   weight:['100','300','400']
@@ -28,6 +30,16 @@ export default function RootLayout({
         <Navbar/>
         {children}
         <Footer/>
+        <Toaster
+            position="bottom-right"
+            toastOptions={{
+              style: {
+                background: "#000000",
+                color: "#ffffff",
+              },
+            }}
+          />
+          <ChatIcon/>
       </body>
     </html>
   );

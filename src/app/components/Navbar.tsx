@@ -1,17 +1,20 @@
-import {
-  Sheet,
-  SheetContent,
- SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { IoMdMenu } from "react-icons/io";
+
+
 import Link from "next/link";
 import Image from "next/image";
-export default function Navbar() {
+import Logo from "./Logo";
+import CartIcon from "./CartIcon";
+import MobileMenu from "./MobileMenu";
+import {  User } from "lucide-react";
+import SearchBar from "./SearchBar";
+import WishList from "./WishListIcon";
+
+export default async function Navbar() {
+  
+
   return (
-    <div className="">
-      <div className="bg-[#7E33E0] md:grid grid-cols-2 flex items-center flex-wrap justify-center px-2   py-2 md:px-auto">
+    <div className="sticky top-0 z-50 bg-white">
+      <div className="bg-[#7E33E0] md:grid grid-cols-2 flex items-center flex-wrap justify-center px-2   py-3 md:px-auto">
         <div className="flex gap-[48px] justify-center ">
           <div className="flex justify-center items-center flex-wrap gap-[10px]">
             <Image
@@ -21,7 +24,7 @@ export default function Navbar() {
               alt="mail"
               className="text-white w-4 h-4"
             />
-            <h1 className="text-white text-16px">mhhasanul@gmail.com</h1>
+            <h1 className="text-white text-16px">hekto@gmail.com</h1>
           </div>
           <div className="flex justify-center items-center flex-wrap gap-[10px]  ">
             <Image
@@ -55,86 +58,32 @@ export default function Navbar() {
               className="text-white w-2"
             />
           </div>
-          <div className="gap-2 flex items-center justify-center">
-            <Link href="/login">
-              <h1 className="text-white text-[16px] ">Login</h1>
-            </Link>
-            <Image
-              width={1000}
-              height={1000}
-              src="/user.png"
-              alt="user"
-              className="text-white w-4"
-            />
-          </div>
-          <div className="gap-2 flex items-center">
-            <h1 className="text-white text-[16px] ">Wishlist</h1>
-            <Image
-              width={1000}
-              height={1000}
-              src="/wishlist.png"
-              alt="wishlist"
-              className="text-white w-4"
-            />
-          </div>
-          <Link href="/shopingcart">
-            <Image
-              width={1000}
-              height={1000}
-              src="/cart.png"
-              alt="cart"
-              className="mx-[26px] w-4"
-            />
+
+
+          <Link href={"/login"} className="text-[16px] text-white flex gap-2 justify-center items-center mx-4 ">
+            Login
+            <User className="text-white w-5" />
           </Link>
+          <div className="mx-4 flex items-center gap-3">
+            <div  className="flex gap-2">
+
+            <h1 className="text-white text-[16px] ">Wishlist</h1>
+            <WishList/>
+            </div>
+
+          <CartIcon />
+            {/* <Link href={"/orders"} className='group relative'>
+    <ListOrdered className='w-5 h-5 text-white'/>
+    <span className='absolute -top-1 -right-1 bg-darkColour text-white h-3.5 w-3.5 rounded-full text-xs font-semibold flex items-center justify-center'>{orders?.length ? orders?.length :0}</span>
+   </Link> */}
+          </div>
+
         </div>
       </div>
-      <div className="md:hidden  block">
-        <Sheet>
-          <div className="flex justify-end px-8 items-center mt-6 text-2xl flex-wrap">
-            <SheetTrigger>
-              <IoMdMenu />
-            </SheetTrigger>
-          </div>
-          <SheetContent className="w-[400px] sm:w-[540px] ">
-            <SheetHeader>
-              <div className="flex flex-col justify-center items-center flex-wrap space-y-6 py-20">
-                
-                <Link href="/" >
-                  <SheetTitle className="text-[#FB2E86] text-[16px] hover:underline underline-offset-4  flex  justify-center items-center gap-[4px]">Home
-
-                  <Image
-                width={1000}
-                height={1000}
-                src="/homearrow.png"
-                alt="arrow"
-                className="w-3 "
-                />
-                </SheetTitle>
-                </Link>
-               
-                <Link href="/about" >
-                  <SheetTitle className="text-[#0D0E43] text-[16px] hover:underline underline-offset-4">Pages</SheetTitle>
-                </Link>
-                <Link href="/products" >
-                  <SheetTitle className="text-[#0D0E43] text-[16px] hover:underline underline-offset-4">Products</SheetTitle>
-                </Link>
-                <Link href="/blog" >
-                  <SheetTitle className="text-[#0D0E43] text-[16px] hover:underline underline-offset-4">Blog</SheetTitle>
-                </Link>
-                <Link href="/shop" >
-                  <SheetTitle className="text-[#0D0E43] text-[16px] hover:underline underline-offset-4">Shop</SheetTitle>
-                </Link>
-                <Link href="/contact">
-                  <SheetTitle className="text-[#0D0E43] text-[16px] hover:underline underline-offset-4">Contact</SheetTitle>
-                </Link>
-              </div>
-            </SheetHeader>
-          </SheetContent>
-        </Sheet>
-      </div>
-      <div className="flex justify-evenly items-center flex-wrap mx-auto my-[22px]">
+      <MobileMenu />
+      <div className="flex justify-evenly items-center flex-wrap mx-auto my-[22px] ">
         <div>
-          <h1 className="text-[34px] text-[#0D0E43] font-semibold ">Hekto</h1>
+          <Logo>Hekto</Logo>
         </div>
         <div className="flex justify-center items-center ">
           <ul className="md:flex hidden  space-x-[35px]  justify-center flex-wrap items-center">
@@ -178,7 +127,8 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="flex justify-end items-center ">
-          <input
+          <SearchBar />
+          {/* <input
             type="text"
             className="border border-gray-400 outline-gray-400"
           />
@@ -190,7 +140,7 @@ export default function Navbar() {
               alt="search"
               className="flex justify-center items-center p-1  "
             />
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import Conatainer from "../components/Container";
 export default function OrderCompleted() {
   return (
+    <Conatainer>
+
     <div>
       <div className="bg-[#F6F5FF] h-[186px] md:px-[150px] px-[50px]">
         <h1 className="text-[36px] text-[#101750] flex items-center pt-14 font-semibold ">
@@ -39,7 +42,7 @@ export default function OrderCompleted() {
               className="w-11 flex items-center justify-center"
             />
           </div>
-          <h1 className="text-[36px] text-[#101750] flex items-center pt-14 font-semibold ">
+          <h1 className="text-[36px] text-[#101750] text-center pt-14 font-semibold ">
             Your Order is Completed!{" "}
           </h1>
           <p className="mt-5 text-[16px] text-center text-[#8D92A7]">
@@ -72,5 +75,6 @@ export default function OrderCompleted() {
         />
       </div>
     </div>
+    </Conatainer>
   );
 }
