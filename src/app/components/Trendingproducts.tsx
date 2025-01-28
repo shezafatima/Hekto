@@ -16,7 +16,7 @@ export default async function TrendingProducts() {
       </h1>
       <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-[29px] mt-[39px]">
         {TrendingProducts.map((trendingproduct)=>(
-        <div key={trendingproduct._id} className="w-[270px] h-[350px] rounded-[4px] shadow-xl">
+        <div key={trendingproduct._id} className="w-[270px] h-[350px] rounded-[4px] shadow-xl hoverEffect  hover:translate-y-1.5 hover:scale-105 hover:ease-in-out">
           <Link href={`/products/${trendingproduct._id}`}>
           <div className="bg-gray-200 m-4 mt-4 w-[247px] h-[244px]">
             {trendingproduct.image &&(

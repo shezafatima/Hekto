@@ -151,8 +151,8 @@ import HeartButton from "@/app/components/HeartButton";
 
 import { Product } from "e:/portfolio-websites/hackathon/types/products";
 
-const SingleProductPage = async ({ params }: { params: { id: string } }) => {
-  const { id } = params; // Destructure the id from params
+const SingleProductPage = async ({ params }: { params:Promise<{id:string}>  }) => {
+  const { id } =await  params; // Destructure the id from params
 
   const relatedProductsQuery = `*[_type == "product" && category == $category && _id != $id][0...4]{
     _id,
