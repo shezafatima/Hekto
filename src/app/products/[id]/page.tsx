@@ -149,7 +149,7 @@ import HeartButton from "@/app/components/HeartButton";
 // export default SingleProductPage;
 
 
-import { Product } from "e:/portfolio-websites/hackathon/types/products";
+import { Product } from "../../../../types/products";
 
 const SingleProductPage = async ({ params }: { params:Promise<{id:string}>  }) => {
   const { id } =await  params; // Destructure the id from params
