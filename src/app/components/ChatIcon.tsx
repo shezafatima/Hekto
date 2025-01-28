@@ -3,6 +3,12 @@ import React, { useEffect } from 'react'
 
 function ChatIcon() {
     useEffect(()=>{
+const chattoken = process.env.NEXT_PUBLIC_CHAT_TOKEN
+const chatapi = process.env.NEXT_PUBLIC_CHAT_API
+    if (!chatapi) {
+      console.error("Chatbot API key is missing. Please set it in your .env.local file.");
+      return;
+    }
         (function(
             w:Window &{chatbotConfig?:[string,string,{apiHost:string}]},
             d,
@@ -23,8 +29,8 @@ function ChatIcon() {
             window,
             document,
             'script',
-            '45B8E0E2-1615-4995-BA18-729FA71DADDD',
-            'j4sPX67_0K1CPpGrDD5r7',
+            chattoken,
+            chatapi,
             {
                 apiHost:'https://api-45B8E0E2-1615-4995-BA18-729FA71DADDD.sendbird.com'
             }
@@ -37,7 +43,7 @@ return()=>{
 }
     },[])
   return (
-    <div>ChatIcon</div>
+    <div></div>
   )
 }
 
