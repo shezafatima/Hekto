@@ -17,13 +17,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
-import {Metadata, createCheckoutSession } from '../../../../actions/createCheckoutSession';
-import { useAuth, useUser } from "@clerk/nextjs";
+
 
 const ShippingPage = () => {
   const [isClient, setIsClient] = useState(false);
-  const [loading,setLoading] = useState(false);
-  const { isSignedIn } = useAuth();
+  const [loading] = useState(false);
+
 
   const {
 

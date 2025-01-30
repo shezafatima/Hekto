@@ -8,17 +8,13 @@ import MobileMenu from "./MobileMenu";
 import {  ListOrdered, User } from "lucide-react";
 import SearchBar from "./SearchBar";
 import WishList from "./WishListIcon";
-import { auth, currentUser } from "@clerk/nextjs/server";
-import { getMyOrders } from "@/sanity/helpers/queries";
+import {  currentUser } from "@clerk/nextjs/server";
+
 
 export default async function Navbar() {
   const user = await currentUser();
-  const {userId} = await auth();
+ 
 
-let orders= null
-if(userId){
-orders = await getMyOrders(userId)
-}
 
 
   return (

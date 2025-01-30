@@ -155,16 +155,14 @@
 // export default ShippingForm;
 "use client";
 
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-import useCartStore, { CartItem } from "../../../store";
-import { useRouter } from "next/navigation";
+import useCartStore from "../../../store";
 import { client } from "@/sanity/lib/client";
 import { createCheckoutSession, Metadata } from "../../../actions/createCheckoutSession";
 import { useUser } from "@clerk/nextjs";
-import Loading from "./Loading";
-import { useAuth } from "@clerk/clerk-react";
+
 
 
 const ShippingForm = () => {
@@ -175,9 +173,8 @@ const ShippingForm = () => {
   const [postalcode, setPostalcode] = useState("");
   const [phoneno, setPhoneno] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
- 
-   const { isSignedIn } = useAuth();
+  const [, setLoading] = useState(false);
+
   const {
     getGroupedItems,
     
@@ -190,7 +187,7 @@ const ShippingForm = () => {
     0
   );
 
-  const router = useRouter();
+  
   const resetCart = useCartStore((state) => state.resetCart);
 
   const handleSubmit = async (event: React.FormEvent) => {
