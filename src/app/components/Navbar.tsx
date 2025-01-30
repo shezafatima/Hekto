@@ -1,16 +1,25 @@
-
+import { ClerkLoaded, SignedIn, SignInButton, UserButton } from "@clerk/nextjs";
 
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "./Logo";
 import CartIcon from "./CartIcon";
 import MobileMenu from "./MobileMenu";
-import {  User } from "lucide-react";
+import {  ListOrdered, User } from "lucide-react";
 import SearchBar from "./SearchBar";
 import WishList from "./WishListIcon";
+import { auth, currentUser } from "@clerk/nextjs/server";
+import { getMyOrders } from "@/sanity/helpers/queries";
 
 export default async function Navbar() {
-  
+  const user = await currentUser();
+  const {userId} = await auth();
+
+let orders= null
+if(userId){
+orders = await getMyOrders(userId)
+}
+
 
   return (
     <div className="sticky top-0 z-50 bg-white">
@@ -60,10 +69,7 @@ export default async function Navbar() {
           </div>
 
 
-          <Link href={"/login"} className="text-[16px] text-white flex gap-2 justify-center items-center mx-4 ">
-            Login
-            <User className="text-white w-5" />
-          </Link>
+          
           <div className="mx-4 flex items-center gap-3">
             <div  className="flex gap-2">
 
@@ -72,6 +78,29 @@ export default async function Navbar() {
             </div>
 
           <CartIcon />
+          <ClerkLoaded>
+<SignedIn>
+  <div className="mx-4 flex items-center gap-3">
+
+ 
+         
+         
+<Link href={"/orders"} >
+    <ListOrdered className='w-5 h-5 text-white'/>
+    
+   </Link>
+
+   <UserButton />
+  </div>
+</SignedIn>
+       {!user && (<SignInButton mode="modal">
+
+          <button className="text-[16px] text-white flex gap-2 justify-center items-center mx-4 ">Login
+
+          <User className="text-white w-5" />
+          </button>
+       </SignInButton>)}
+        </ClerkLoaded>
             {/* <Link href={"/orders"} className='group relative'>
     <ListOrdered className='w-5 h-5 text-white'/>
     <span className='absolute -top-1 -right-1 bg-darkColour text-white h-3.5 w-3.5 rounded-full text-xs font-semibold flex items-center justify-center'>{orders?.length ? orders?.length :0}</span>

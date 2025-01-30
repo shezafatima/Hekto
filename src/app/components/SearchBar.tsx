@@ -74,7 +74,7 @@ const SearchBar = () => {
               className="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
               onClick={handleItemClick} 
             >
-              <Link href={`/product/${product._id}`} className="flex items-center w-full">
+              <Link href={`/products/${product._id}`} className="flex items-center w-full">
                 {product?.image && (
                   <Image
                     src={urlFor(product?.image).url()}

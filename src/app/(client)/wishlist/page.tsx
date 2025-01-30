@@ -1,7 +1,7 @@
 "use client"
-import Container from "../components/Container";
+import Container from "../../components/Container";
 
-import Loading from "../components/Loading";
+import Loading from "../../components/Loading";
 
 import { Button } from "@/components/ui/button";
 
@@ -10,17 +10,17 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "../../components/ui/tooltip";
+} from "../../../components/ui/tooltip";
 import { urlFor } from "@/sanity/lib/image";
-import useCartStore from "../../../store";
+import useCartStore from "../../../../store";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import AddToCartIcon from "../components/AddToCartIcon";
-import Zoom from "../components/Zoom";
-import EmptyWishlist from "../components/EmptyWishlist";
+import AddToCartIcon from "../../components/AddToCartIcon";
+import Zoom from "../../components/Zoom";
+import EmptyWishlist from "../../components/EmptyWishlist";
 
 const WishlistPage = () => {
   const [isClient, setIsClient] = useState(false);

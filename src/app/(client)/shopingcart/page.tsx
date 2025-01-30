@@ -1,31 +1,33 @@
 
 "use client";
-import Container from "../components/Container";
-import EmptyCart from "../components/EmptyCart";
-import Loading from "../components/Loading";
+import Container from "../../components/Container";
+import EmptyCart from "../../components/EmptyCart";
+import Loading from "../../components/Loading";
 
-import PriceFormatter from "../components/PriceFormatter";
-import QuantityButtons from "../components/QuantityButtons";
+import PriceFormatter from "../../components/PriceFormatter";
+import QuantityButtons from "../../components/QuantityButtons";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "../../components/ui/tooltip";
+} from "../../../components/ui/tooltip";
 import { urlFor } from "@/sanity/lib/image";
-import useCartStore from "../../../store";
+import useCartStore from "../../../../store";
 import {  X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Checkbox } from "@/components/ui/checkbox";
+import NoAccessToCart from "@/app/components/NoAccessToCart";
+import { useAuth } from "@clerk/nextjs";
 
 const CartPage = () => {
   const [isClient, setIsClient] = useState(false);
   const [loading] = useState(false);
+  const { isSignedIn } = useAuth();
 
   const {
     deleteCartProduct,
@@ -78,6 +80,7 @@ const CartPage = () => {
 
   return (
     <div className="bg-gray-50 pb-52 md:pb-10">
+        {isSignedIn ? (
         <Container>
           {cartProducts?.length ? (
             <>
@@ -98,7 +101,7 @@ const CartPage = () => {
                 </div>
               </div>
 
-              <Container className="flex">
+              <Container className="flex lg:flex-row flex-col">
               <div className="">
                 <div>
 
@@ -132,7 +135,7 @@ const CartPage = () => {
                           <TooltipTrigger>
                             <X
                               onClick={() => handleDeleteProduct(product?._id)}
-                              className="absolute ml-[76px] -mt-1 w-3 h-3 p-[2px]  text-white bg-black rounded-full"
+                              className=" w-4 h-4 p-[2px]  text-white bg-black rounded-full"
                             />
                           </TooltipTrigger>
                           <TooltipContent className="font-bold bg-red-600">
@@ -206,7 +209,7 @@ const CartPage = () => {
                       </Button>
                     </div>
               </div>
-              <div className="flex   items-center flex-col flex-wrap">
+              <div className="flex   items-center flex-col flex-wrap lg:mt-0 mt-20">
                   <h1 className="text-[20px] text-[#1D3178] font-semibold text-center">
                     Cart Totals
                   </h1>
@@ -261,112 +264,7 @@ const CartPage = () => {
                   </div>
                 </div>
               </Container>
-              <div className="grid lg:grid-cols-3 md:gap-8">
-                {/* Products */}
-                <div className="lg:col-span-2 rounded-lg">
-                  <div className="border bg-white rounded-md">
-                    
-                      
-                       
-                        
-                     
-                  
-                    
-                  </div>
-                </div>
-                {/* summary */}
-               
-                {/* <div className="lg:col-span-1">
-                  <div className="hidden md:inline-block w-full bg-white p-6 rounded-lg border">
-                    <h2 className="text-xl font-semibold mb-4">
-                      Order Summary
-                    </h2>
-                    <div className="space-y-4">
-                      <div className="flex justify-between">
-                        <span>Subtotal</span>
-                        <PriceFormatter amount={getSubtotalPrice()} />
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Discount</span>
-                        <PriceFormatter
-                          amount={getSubtotalPrice() - getTotalPrice()}
-                        />
-                      </div>
-                      <Separator />
-                      <div className="flex justify-between">
-                        <span>Total</span>
-                        <PriceFormatter
-                          amount={getTotalPrice()}
-                          className="text-lg font-bold text-black"
-                        />
-                      </div>
-                      <Button
-                        disabled={loading}
-                        onClick={handleCheckout}
-                        className="w-full rounded-full font-semibold tracking-wide"
-                        size="lg"
-                      >
-                        Proceed to Checkout
-                      </Button>
-                      <Link
-                        href={"/"}
-                        className="flex items-center justify-center py-2 border border-darkColour/50 rounded-full hover:border-darkColour hover:bg-darkColour/5 hoverEffect"
-                      >
-                        <Image
-                          src={paypalLogo}
-                          alt="paypalLogo"
-                          className="w-20"
-                        />
-                      </Link>
-                    </div>
-                  </div>
-                </div> */}
-                {/* Order summary for mobile view */}
-                <div className="md:hidden fixed bottom-0 left-0 w-full bg-white pt-2">
-                  <div className="p-4 rounded-lg border mx-4">
-                    <h2 className="text-xl font-semibold mb-4">
-                      Order Summary
-                    </h2>
-                    <div className="space-y-4">
-                      <div className="flex justify-between">
-                        <span>Subtotal</span>
-                        <PriceFormatter amount={getTotalPrice()} />
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Discount</span>
-                        <PriceFormatter
-                          amount={getTotalPrice()}
-                        />
-                      </div>
-                      <Separator />
-                      <div className="flex justify-between">
-                        <span>Total</span>
-                        <PriceFormatter
-                          amount={getTotalPrice()}
-                          className="text-lg font-bold text-black"
-                        />
-                      </div>
-                      <Button
-                       
-                        className="w-full rounded-full font-semibold tracking-wide"
-                        size="lg"
-                      >
-                        Proceed to Checkout
-                      </Button>
-                      {/* <Link
-                        href={"/"}
-                        className="flex items-center justify-center py-2 border border-darkColour/50 rounded-full hover:border-darkColour hover:bg-darkColour/5 hoverEffect"
-                      >
-                        <Image
-                          src={paypalLogo}
-                          alt="paypalLogo"
-                          className="w-20"
-                        />
-                      </Link> */}
-                    </div>
-                  </div>
-                </div>
-              </div>
+             
 
 
 
@@ -380,6 +278,9 @@ const CartPage = () => {
             <EmptyCart />
           )}
         </Container>
+        ) : (
+          <NoAccessToCart />
+        )}
       
     </div>
   );

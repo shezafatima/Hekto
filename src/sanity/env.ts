@@ -14,6 +14,14 @@ export const token = assertValue(
   process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
   'Missing environment variable: NEXT_PUBLIC_API_TOKEN'
 )
+export const chattoken = assertValue(
+  process.env.NEXT_PUBLIC_CHAT_TOKEN,
+  'Missing environment variable: NEXT_PUBLIC_CHAT_TOKEN'
+)
+export const chatapi = assertValue(
+  process.env.NEXT_PUBLIC_CHAT_API,
+  'Missing environment variable: NEXT_PUBLIC_CHAT_aPI'
+)
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {

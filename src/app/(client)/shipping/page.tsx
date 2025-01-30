@@ -1,26 +1,29 @@
 "use client";
 import React from 'react'
-import ShippingForm from '../components/ShippingForm'
+import ShippingForm from '../../components/ShippingForm'
 
 
-import Container from "../components/Container";
-import EmptyCart from "../components/EmptyCart";
-import Loading from "../components/Loading";
+import Container from "../../components/Container";
+import EmptyCart from "../../components/EmptyCart";
+import Loading from "../../components/Loading";
 
-import PriceFormatter from "../components/PriceFormatter";
+import PriceFormatter from "../../components/PriceFormatter";
 
 
 import { urlFor } from "@/sanity/lib/image";
-import useCartStore from "../../../store";
+import useCartStore from "../../../../store";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
+import {Metadata, createCheckoutSession } from '../../../../actions/createCheckoutSession';
+import { useAuth, useUser } from "@clerk/nextjs";
 
 const ShippingPage = () => {
   const [isClient, setIsClient] = useState(false);
-  const [loading] = useState(false);
+  const [loading,setLoading] = useState(false);
+  const { isSignedIn } = useAuth();
 
   const {
 
@@ -30,14 +33,16 @@ const ShippingPage = () => {
 
     getGroupedItems,
   } = useCartStore();
-
-  useEffect(() => {
+useEffect(() => {
     setIsClient(true);
-  }, []);
+  },[]);
+  
+
   if (!isClient) {
     return <Loading />;
   }
   const cartProducts = getGroupedItems();
+ 
 
   return (
     <div className="bg-gray-50 pb-52 md:pb-10">
