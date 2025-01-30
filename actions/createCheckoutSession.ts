@@ -91,10 +91,8 @@ export async function createCheckoutSession(
       allow_promotion_codes: true,
       payment_method_types: ["card"],
       invoice_creation: { enabled: true },
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}&orderNumber=${metadata.orderNumber}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/cart`,
-      // success_url: `https://ecommerce-hackathon.netlify.app/success?session_id={CHECKOUT_SESSION_ID}&orderNumber=${metadata.orderNumber}`,
-      // cancel_url: `https://ecommerce-hackathon.netlify.app/cart`,
+      success_url: `https://hekto-marketplace.netlify.app/success?session_id={CHECKOUT_SESSION_ID}&orderNumber=${metadata.orderNumber}`,
+      cancel_url: `https://hekto-marketplace.netlify.app/cart`,
       line_items: items.map((item) => ({
         price_data: {
           currency: "USD",
