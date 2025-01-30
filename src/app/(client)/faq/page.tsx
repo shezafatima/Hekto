@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Conatainer from "../components/Container";
+import Conatainer from "../../components/Container";
 export default function FAQ() {
   return (
     <Conatainer>

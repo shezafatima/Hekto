@@ -1,66 +1,13 @@
 
-// import Link from "next/link";
-// import Image from "next/image";
-// import { client } from "@/sanity/lib/client";
-
-// import { Product } from "../../../types/products";
-// import { allProducts } from "@/sanity/lib/queries";
-
-// import ProductGrid from "../components/ProductGrid";
-// import Conatainer from "../components/Container";
-// export default async function Products(){
-//   let products: Product[] = [];
-
-//   try {
-//     products = await client.fetch(allProducts);
-//   } catch (error) {
-//     console.error("Failed to fetch products:", error);
-//   }
-//     return(
-//       <Conatainer>
-
-//         <div> 
-//             <div className="bg-[#F6F5FF] h-[186px] md:px-[150px] px-[50px]">
-//         <h1 className="text-[36px] text-[#101750] flex items-center pt-14 font-semibold ">
-//           Shop Grid Default
-//         </h1>
-//         <div className="mt-2 flex flex-wrap items-center gap-3">
-//           <Link href="/" className="text-black text-[16px]">
-//             Home .{" "}
-//           </Link>
-//           <Link href="/" className="text-black text-[16px]">
-//             Pages .{" "}
-//           </Link>
-//           <Link href="/faq" className="text-[#FB2E86] text-[16px]">
-//             Shop Grid Default{" "}
-//           </Link>
-//         </div>
-//       </div>
-//       <ProductGrid products={products}/>
-//       <div className="flex justify-center items-center mt-[96px]">
-//         <Image
-//           src="/brand.png"
-//           alt="brand"
-//           width={1000}
-//           height={1000}
-//           className=""
-//         />
-//       </div>
-//       </div>
-//       </Conatainer>
-
-      
-//     )
-// }
 import Link from "next/link";
 import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 
-import { Product } from "../../../types/products";
+import { Product } from "../../../../types/products";
 import { allProducts } from "@/sanity/lib/queries";
 
-import ProductGrid from "../components/ProductGrid";
-import Container from "../components/Container";
+import ProductGrid from "../../components/ProductGrid";
+import Container from "../../components/Container";
 
 export default async function Products() {
   let products: Product[] = [];
