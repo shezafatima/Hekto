@@ -22,7 +22,7 @@ export default function FAQ() {
           </Link>
         </div>
       </div>
-      <div className="mx-[20px] mt-20 grid md:grid-cols-2 gap-10">
+      <div className="mx-[20px] mt-20 grid lg:grid-cols-2 gap-10">
 
       <div className=" md:w-[499px] ">
         <h1 className="text-[36px] text-[#151875] font-semibold  ">
@@ -65,7 +65,7 @@ export default function FAQ() {
           </p>
         </div>
       </div>
-      <div className="md:w-[556px] px-11 py-7 bg-[#e0e1ee] rounded-sm">
+      <div className="md:w-[556px] px-11 py-7 bg-[#e0e1ee] rounded-sm lg:mt-0 mt-10">
 <h1 className="text-[24px] text-[#1D3178] font-semibold">Ask a Question</h1>
 <input type="text" placeholder="Your Name*"  className="border text-[16px] mt-20 px-2 text-[#9096B2]  outline-gray-400 w-full py-4"/>
 <input type="text" placeholder="Subject*"  className="border text-[16px] mt-4 px-2 text-[#9096B2]  outline-gray-400 w-full py-4"/>
