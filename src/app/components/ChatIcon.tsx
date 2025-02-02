@@ -6,7 +6,7 @@ function ChatIcon() {
 const chattoken = process.env.NEXT_PUBLIC_CHAT_TOKEN
 const chatapi = process.env.NEXT_PUBLIC_CHAT_API
     if (!chatapi) {
-      console.error("Chatbot API key is missing. Please set it in your .env.local file.");
+      console.error("Chatbot API key is missing.");
       return;
     }
         (function(

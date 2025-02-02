@@ -49,7 +49,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
   return (
     <div>
       {/* Filter Bar */}
-      <div className="flex mt-20 md:mx-[150px] mx-[20px] justify-between flex-wrap">
+      <div className="flex mt-20  mx-[20px] justify-between flex-wrap">
         <div className="flex flex-col">
           <h1 className="text-[22px] text-[#151875] font-semibold">
             Ecommerce Accessories & Fashion item
@@ -76,7 +76,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
           viewType === "grid"
             ? "grid lg:grid-cols-4 sm:grid-cols-2 sm:gap-10"
             : "flex flex-col gap-6"
-        } mx-[20px] md:mx-[130px] mt-10`}
+        } mx-[20px]  mt-10`}
       >
         {paginatedProducts.map((product) => (
           <div

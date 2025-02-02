@@ -11,7 +11,7 @@ import AddToCartButton from "@/app/components/AddToCartButton";
 import Conatainer from "@/app/components/Container";
 import HeartButton from "@/app/components/HeartButton";
 
-import { Product } from "../../../../../types/products";
+import { Product } from "../../../../../../types/products";
 
 const SingleProductPage = async ({ params }: { params:Promise<{id:string}>  }) => {
   const { id } =await  params; // Destructure the id from params

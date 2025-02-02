@@ -18,3 +18,28 @@ export const productReview=groq`*[_type == "review" && product._ref == $id] | or
   review,
   _createdAt,
 }`
+
+export const allReviews=groq`*[_type=="review"]{
+  _id,
+  name,
+  review,
+  _createdAt,
+  product->{
+    _id,
+  name,
+    image,
+   
+  }
+}`
+
+export const allOrders = groq `*[_type == "order"] | order(orderDate desc) {
+  _id,
+  email,
+  customerName,
+  orderDate,
+  totalPrice,
+  status,
+  products[] {
+    ..., product->
+  }
+}`

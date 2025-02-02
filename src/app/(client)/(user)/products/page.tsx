@@ -3,11 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 
-import { Product } from "../../../../types/products";
+import { Product } from "../../../../../types/products";
 import { allProducts } from "@/sanity/lib/queries";
 
-import ProductGrid from "../../components/ProductGrid";
-import Container from "../../components/Container";
+import ProductGrid from "../../../components/ProductGrid";
+import Container from "../../../components/Container";
 
 export default async function Products() {
   let products: Product[] = [];
@@ -24,7 +24,7 @@ export default async function Products() {
     <Container>
       <div>
         {/* Header Section */}
-        <div className="bg-[#F6F5FF] h-[186px] md:px-[150px] px-[50px]">
+        <div className="bg-[#F6F5FF] h-[186px]  px-[50px]">
           <h1 className="text-[36px] text-[#101750] flex items-center pt-14 font-semibold">
             Shop Grid Default
           </h1>
