@@ -23,7 +23,7 @@ const ShippingForm = () => {
 
   const {
     getGroupedItems,
-    getTotalPrice
+   
     
   }= useCartStore();
   const { user } = useUser();
@@ -65,7 +65,7 @@ const ShippingForm = () => {
       customerName: firstname,
       email: user?.emailAddresses[0]?.emailAddress ?? "Unknown", 
       currency: "USD",
-      unit_amount: getTotalPrice(),
+      unit_amount: cartTotal,
       amountDiscount: 0,
       status: "pending",
       orderDate: new Date().toISOString(),
