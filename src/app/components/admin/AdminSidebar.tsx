@@ -53,18 +53,18 @@ function AdminSidebar() {
     <CommandGroup heading="Settings">
       <CommandItem>
       <User className="mr-2 h-4 w-4"/>
-      <span>
+      <Link href='/admin/profile'>
         Profile
 
-      </span>
+      </Link>
       <CommandShortcut>⌘P</CommandShortcut>
         </CommandItem>
         <CommandItem>
       <Settings className="mr-2 h-4 w-4"/>
-      <span>
+      <Link href='/admin/setings'>
       Settings
 
-      </span>
+      </Link>
       <CommandShortcut>⌘S</CommandShortcut>
         </CommandItem>
     </CommandGroup>

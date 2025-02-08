@@ -9,6 +9,8 @@ import { Product } from '../../../../types/products';
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
 import DeleteButton from './DeleteButton';
+import EditProductForm from './EditProductForm';
+
 
 interface ProductTableProps{
   limit?:number;
@@ -50,7 +52,7 @@ async function ProductTable({limit,title}:ProductTableProps) {
       <TableHead className='hidden md:table-cell text-right'>
      Category
       </TableHead>
-      <TableHead>
+      <TableHead className='right-2'>
        Action
       </TableHead>
     </TableRow>
@@ -79,14 +81,22 @@ async function ProductTable({limit,title}:ProductTableProps) {
   <TableCell className='hidden md:table-cell text-right'>
     {product.category}
   </TableCell>
-  <TableCell >
-    <DeleteButton productId={product._id}/>
+  <TableCell className='flex gap-2'>
+  
+      <DeleteButton productId={product._id}/>
+    
+     <EditProductForm productId={product._id}/>
+   
+
+
+    {/* <DeleteButton productId={product._id}/> */}
   {/* <button
                   // onClick={() => deleteProduct(product._id)}
                   className="py-2 text-xs rounded-sm px-4 text-white bg-[#FB2E86] hover:bg-transparent hover:border hover:text-[#FB2E86] hover:border-[#FB2E86]"
                 >
                   Delete
                 </button> */}
+                {/* <EditProductForm productId={product._id}/> */}
   </TableCell>
   </TableRow>
     ))}

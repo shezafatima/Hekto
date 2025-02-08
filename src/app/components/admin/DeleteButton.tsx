@@ -1,6 +1,7 @@
 "use client";
 
 import { client } from "@/sanity/lib/client";
+import { Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 
 export default function DeleteButton({ productId }: { productId: string }) {
@@ -22,9 +23,9 @@ export default function DeleteButton({ productId }: { productId: string }) {
         toast.success(`Product Deleted successfully!`);
     }}
       
-      className="py-2 text-xs rounded-sm px-4 text-white bg-[#FB2E86] hover:bg-transparent hover:border hover:text-[#FB2E86] hover:border-[#FB2E86]"
+      className="p-2  rounded-sm  text-white bg-[#FB2E86] hover:bg-transparent hover:border hover:text-[#FB2E86] hover:border-[#FB2E86]"
     >
-      Delete
+      <Trash2/>
     </button>
   );
 }

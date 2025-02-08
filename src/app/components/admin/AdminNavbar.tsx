@@ -38,7 +38,7 @@ function AdminNavbar() {
     <DropdownMenuLabel>My Account</DropdownMenuLabel>
     <DropdownMenuSeparator />
     <DropdownMenuItem>
-      <Link href={"/profile"}>
+      <Link href={"/admin/profile"}>
       Profile
       </Link>
     </DropdownMenuItem>

@@ -8,6 +8,7 @@ import useCartStore from "../../../store";
 import { client } from "@/sanity/lib/client";
 import { createCheckoutSession, Metadata } from "../../../actions/createCheckoutSession";
 import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 
 
@@ -20,17 +21,17 @@ const ShippingForm = () => {
   const [phoneno, setPhoneno] = useState("");
   const [error, setError] = useState("");
   const [, setLoading] = useState(false);
-
+  const [paymentMethod, setPaymentMethod] = useState<"paynow" | "cod">("paynow");
   const {
     getGroupedItems,
    
     
   }= useCartStore();
   const { user } = useUser();
- 
+  const router = useRouter();
   const cartProducts = getGroupedItems();
   const cartTotal = cartProducts.reduce(
-    (total, item) => total + (item.product.price * item.quantity),
+    (total, item) => total + item.product.price * item.quantity,
     0
   );
 
@@ -65,8 +66,9 @@ const ShippingForm = () => {
       customerName: firstname,
       email: user?.emailAddresses[0]?.emailAddress ?? "Unknown", 
       currency: "USD",
-      unit_amount: cartTotal,
+      totalPrice: cartTotal,
       amountDiscount: 0,
+      products:cartProducts ,
       status: "pending",
       orderDate: new Date().toISOString(),
       shippingDetails: {
@@ -79,12 +81,14 @@ const ShippingForm = () => {
     };
   
     try {
+      // Store order in Sanity with total price
       const savedOrder = await client.create(orderData);
       console.log("Order stored in Sanity:", savedOrder);
-  
-
-      await handleCheckout(orderNumber);
-  
+      if (paymentMethod === "paynow") {
+        await handleCheckout(orderNumber); // Redirect to Stripe
+      } else {
+        router.push(`/success`); // Redirect to order success page
+      }
 
       resetCart();
     } catch (error) {
@@ -92,7 +96,8 @@ const ShippingForm = () => {
       setError("Failed to store order. Please try again.");
     }
   };
-  const handleCheckout = async (orderNumber:string) => {
+
+  const handleCheckout = async (orderNumber: string) => {
     setLoading(true);
     try {
       const metadata: Metadata = {
@@ -107,12 +112,14 @@ const ShippingForm = () => {
       }
     } catch (error) {
       console.error("Error creating checkout session:", error);
+      setError("Failed to create checkout session.");
     } finally {
       setLoading(false);
     }
   };
 
   
+
 
   return (
     <div className="bg-gray-200 p-8 rounded-lg lg:mt-0 mt-12">
@@ -215,7 +222,31 @@ const ShippingForm = () => {
             placeholder="Postal Code"
           />
         </div>
-
+        <h2 className="text-[#1D3178] text-xl font-bold">Payment Method</h2>
+        <div >
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="paymentMethod"
+              value="paynow"
+              className=" text-[#FB2E86] border-gray-300 focus:ring-[#FB2E86]"
+              checked={paymentMethod === "paynow"}
+              onChange={() => setPaymentMethod("paynow")}
+            />
+            Pay Now
+          </label>
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="paymentMethod"
+               className=" text-[#FB2E86] border-gray-300 focus:ring-[#FB2E86]"
+              value="cod"
+              checked={paymentMethod === "cod"}
+              onChange={() => setPaymentMethod("cod")}
+            />
+            Cash on Delivery
+          </label>
+        </div>
       
         <Button
           type="submit"

@@ -255,7 +255,7 @@ const CartPage = () => {
                     <button
                       disabled={loading}
                       
-                      className="bg-[#19D16F] text-white text-[14px] text-center py-3 rounded-sm w-full mt-4"
+                      className="bg-[#19D16F] hoverEffect hover:scale-105 text-white text-[14px] text-center py-3 rounded-sm w-full mt-4"
                       >
                       Proceed To Checkout
                     </button>

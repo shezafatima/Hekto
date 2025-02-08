@@ -9,13 +9,15 @@ import {  ListOrdered, User } from "lucide-react";
 import SearchBar from "./SearchBar";
 import WishList from "./WishListIcon";
 import {  currentUser } from "@clerk/nextjs/server";
+import { client } from "@/sanity/lib/client";
+import { allOrders } from "@/sanity/lib/queries";
 
 
 export default async function Navbar() {
   const user = await currentUser();
  
 
-
+const orders = await client.fetch(allOrders)
 
   return (
     <div className="sticky top-0 z-50 bg-white">
@@ -82,6 +84,9 @@ export default async function Navbar() {
          
          
 <Link href={"/orders"} >
+    <span className="absolute top-2   text-white h-3.5 w-3.5 rounded-full text-xs font-semibold flex items-center justify-center">
+        {orders.length ? orders.length : 0}
+      </span>
     <ListOrdered className='w-5 h-5 text-white'/>
     
    </Link>
